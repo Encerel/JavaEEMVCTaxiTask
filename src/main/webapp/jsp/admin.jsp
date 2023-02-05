@@ -5,8 +5,11 @@
     <title>Admin</title>
 </head>
 <body>
-<h1>Admin page</h1>
 
+
+<c:import url="fragment/header.jsp"/>
+
+<h1>Admin page</h1>
 <form action="controller" method="post">
     <button>Check all users</button>
     <input type="hidden" name="command" value="find_all_users">
