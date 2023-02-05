@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 
     private static final String SQL_FIND_ALL_USERS = "SELECT * FROM \"user\"";
     private static final String SQL_ADD_USER = "INSERT INTO \"user\" (\"name\", surname, email, \"password\",\"role\") VALUES (?, ?, ?, ?, CAST(? AS user_role))";
-    private static final String SQL_CHANGE_USER_ROLE = "UPDATE \"user\" SET role=? WHERE user_id=?";
+    private static final String SQL_CHANGE_USER_ROLE = "UPDATE \"user\" SET role=CAST(? AS user_role) WHERE user_id=?";
     private static final String SQL_FIND_PASSWORD_BY_EMAIL = "SELECT password FROM \"user\" WHERE email=?";
     private static final String SQL_FIND_USER_BY_EMAIL = "SELECT user_id, name, surname, email, role FROM \"user\" WHERE email=?";
 
