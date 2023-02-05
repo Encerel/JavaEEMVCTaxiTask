@@ -1,17 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Asus
-  Date: 10/21/2022
-  Time: 3:06 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-    SIGN_UP
+
+<c:import url="fragment/header.jsp"/>
 
 <form action="controller" method="post">
     <div>
@@ -36,5 +31,7 @@
     <input type="hidden" name="command" value="sign_up">
 </form>
 ${message}
+
+<c:import url="fragment/footer.jsp"/>
 </body>
 </html>

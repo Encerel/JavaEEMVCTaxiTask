@@ -6,7 +6,8 @@
     <title>Title</title>
 </head>
 <body>
-Hello, ${sessionScope.user.name}
+
+<c:import url="fragment/header.jsp"/>
 
 <table>
     <tr>
@@ -29,19 +30,6 @@ Hello, ${sessionScope.user.name}
 
 </table>
 
-<c:if test="${sessionScope.user.role == 'ADMIN'}">
-    <form action="controller" method="get">
-        <input type="hidden" value="to_admin_page" name="command">
-        <button>Go to the admin page</button>
-    </form>
-</c:if>
-
-<form action="controller" method="post">
-    <button>Exit</button>
-    <input type="hidden" name="command" value="log_out">
-</form>
-
-
-
+<c:import url="fragment/footer.jsp"/>
 </body>
 </html>

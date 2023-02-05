@@ -66,7 +66,7 @@
     </c:forEach>
 </table>
 <form action="controller" method="post">
-    <button>Receive taxis cost</button>
+    <button>Calculate taxis cost</button>
     <input type="hidden" name="command" value="cost_taxis">
     ${sessionScope.taxis_cost}
 </form>
@@ -83,9 +83,7 @@
 </form>
 
 ${message}
-<form action="controller" method="post">
-    <button>Exit</button>
-    <input type="hidden" name="command" value="log_out">
-</form>
+
+<c:import url="fragment/footer.jsp"/>
 </body>
 </html>

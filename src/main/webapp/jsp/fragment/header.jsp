@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -18,15 +19,30 @@
 <div class="navbar navbar-light bg-light align-items-center mb-5">
     <div class="container-fluid">
         <a class="navbar-brand">Taxi depot</a>
-        <div class="d-flex" style="margin: 0;">
-            <form style="margin: 0 5px;">
-                <button class="btn btn-outline-primary  align-items-center" style="margin: 0;" type="submit">Sign In</button>
-            </form>
-            <form action="controller" method="post" style="margin: 0;">
-                <button class="btn btn-outline-success  align-items-center" style="margin: 0;" type="submit">Sign Up</button>
-                <input type="hidden" name="command" value="to_sign_up">
-            </form>
-        </div>
+
+        <c:if test="${sessionScope.user == null}">
+            <div class="d-flex" style="margin: 0;">
+                <form  action="controller" method="post" style="margin: 0 10px;">
+                    <input type="hidden" name="command" value="to_sign_in">
+                    <button class="btn btn-outline-primary  align-items-center" style="margin: 0;" type="submit">Sign In</button>
+                </form>
+                <form action="controller" method="post" style="margin: 0;">
+                    <button class="btn btn-outline-success  align-items-center" style="margin: 0;" type="submit">Sign Up</button>
+                    <input type="hidden" name="command" value="to_sign_up">
+                </form>
+            </div>
+        </c:if>
+        <c:if test="${sessionScope.user != null}">
+            <div class="d-flex" style="margin: 0;">
+                <span style="margin: 0 10px 0 0; display: flex; align-items: center;">
+                    Hello, ${sessionScope.user.name}
+                </span>
+                <form action="controller" method="post" style="margin: 0;">
+                    <input type="hidden" name="command" value="log_out">
+                    <button class="btn btn-outline-danger align-items-center" style="margin: 0;">Log Out</button>
+                </form>
+            </div>
+        </c:if>
     </div>
 </div>
 
